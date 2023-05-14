@@ -1,0 +1,128 @@
+
+$bg-color: #fff;
+$main-color: #97a2a6;
+$radio-bordes: 20px; 
+
+$small-screen: 576px;
+$medium-screen: 768px;
+$large-screen: 992px;
+
+body {
+  background-color: $bg-color;
+}
+
+.wrapper {
+  border: 4px solid $bg-color;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas: 
+    "n1 n4"
+    "n1 n4"
+    "n1 n9";
+  gap: 20px;
+  background: $bg-color;
+
+  .item1 {
+    background: $main-color;
+    font-weight: x-large;
+    grid-area: n1;
+    border-radius: $radio-bordes; 
+    border: 2px ;
+    padding: 20px;
+  }
+
+  .item4 {
+    grid-area: n4;
+    h1 {
+      margin-bottom: 10px;
+    }
+    h2 {
+      margin: 20px 0 10px;
+    }
+    ul {
+      margin-bottom: 20px;
+      li {
+        margin-bottom: 10px;
+        h3 {
+          margin-bottom: 5px;
+        }
+        p {
+          margin-bottom: 5px;
+        }
+      }
+    }
+  }
+
+  .item5 {
+    background: $main-color;
+    grid-area: n5;
+    p {
+      margin-bottom: 10px;
+    }
+  }
+
+  .item9 {
+    grid-area: n9;
+    h2 {
+      margin: 20px 0 10px;
+    }
+    ul {
+      margin-bottom: 20px;
+      li {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  @media only screen and (max-width: $small-screen) {
+    grid-template-areas: 
+      "n1"
+      "n4"
+      "n5"
+      "n9";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    
+    .item1 {
+      text-align: center;
+      padding: 10px;
+      ul li {
+        list-style-type: none;
+      }
+    }
+
+    .item4 {
+      text-align: center;
+      h1 {
+        margin-top: 20px;
+      }
+      ul li {
+        list-style-type: none;
+      }
+    }
+
+    .item5 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .item9 {
+        text-align: center;
+      ul li {
+        list-style-type: none;
+      }
+    }
+  }
+
+  @media only screen and (min-width: $medium-screen) and (max-width: $large-screen) {
+    grid-template-columns: 1fr 1fr;
+    list-style-type: none;
+
+    .item5 {
+      margin-bottom: 0;
+      list-style-type: none;
+    }
+  }
+}
