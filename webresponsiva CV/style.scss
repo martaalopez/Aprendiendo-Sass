@@ -1,91 +1,85 @@
 $bg-color: #fff;
 $main-color: #97a2a6;
-$radio-bordes: 20px; 
+$radio-bordes: 20px;
+$fondo-color: #2ced11, #f11b0d, #ef0fe2, #11eedc, #e5ee11, #888377, #f0960e;
+$font-sizes: (
+        h1: 2.3rem,
+        h2: 2.2rem,
+        h3: 2rem,
+        h4: 1.5rem,
+        h5: 1.25rem,
+        h6: 1rem
+);
+$breakpoint: (
+        mobile: 650px,
+         tablet: 768px,
+        desktop: 992px
+);
 
-$small-screen: 576px;
-$medium-screen: 768px;
-$large-screen: 992px;
+$body-color: #fff;
 
 body {
   background-color: $bg-color;
 }
-
+@each $tag, $size in $font-sizes {
+  #{$tag} {
+    font-size: $size;
+  }
+}
+@function calcularAnchura($breakpoint) {
+  @if $breakpoint == "desktop" {
+    @return 992 px;
+  } @else if $breakpoint == "mobile" {
+    @return 576px;
+  } @else if $breakpoint == "tablet" {
+    @return  768px;
+  }
+}
 .wrapper {
-  border: 4px solid $bg-color;
-  margin: auto;
+  width: calcularAnchura("desktop");
+  border: solid $bg-color;
+  margin-left:5%;
+  margin-right:5%;
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-template-rows: repeat(3, 1fr);
-  grid-template-areas: 
+  grid-template-areas:
     "n1 n4"
     "n1 n4"
-    "n1 n9";
+   "n10 0";
   gap: 20px;
   background: $bg-color;
 
   .item1 {
     background: $main-color;
     grid-area: n1;
-    border-radius: $radio-bordes; 
-    border: 2px ;
+    border-radius: $radio-bordes;
+    border: 2px;
     padding: 20px;
   }
 
   .item4 {
     grid-area: n4;
-    h1 {
-      margin-bottom: 10px;
-    }
-    h2 {
-      margin: 20px 0 10px;
-    }
-    ul {
-      margin-bottom: 20px;
-      li {
-        margin-bottom: 10px;
-        h3 {
-          margin-bottom: 5px;
-        }
-        p {
-          margin-bottom: 5px;
-        }
-      }
-    }
   }
+
 
   .item5 {
     background: $main-color;
     grid-area: n5;
-    p {
-      margin-bottom: 10px;
-    }
   }
 
-  .item9 {
-    grid-area: n9;
-    h2 {
-      margin: 20px 0 10px;
-    }
-    ul {
-      margin-bottom: 20px;
-      li {
-        margin-bottom: 10px;
-      }
-    }
-  }
+  @media screen and (max-width: #{map-get($breakpoint, "mobile")}) {
+    width: calcularAnchura("mobile");
+    grid-template-areas:
+      "n1 "
+      "n4 "
+      "n5 "
+      "n10 ";
+    grid-template-columns:1fr !important;
 
-  @media only screen and (max-width: $small-screen) {
-    grid-template-areas: 
-      "n1"
-      "n4"
-      "n5"
-      "n9";
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    
     .item1 {
       text-align: center;
-      padding: 10px;
+
       ul li {
         list-style-type: none;
       }
@@ -93,9 +87,11 @@ body {
 
     .item4 {
       text-align: center;
+
       h1 {
-        margin-top: 20px;
+        margin-top: 50px;
       }
+
       ul li {
         list-style-type: none;
       }
@@ -103,24 +99,32 @@ body {
 
     .item5 {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 50px;
     }
 
-    .item9 {
-        text-align: center;
-      ul li {
-        list-style-type: none;
-      }
-    }
   }
 
-  @media only screen and (min-width: $medium-screen) and (max-width: $large-screen) {
-    grid-template-columns: 1fr 1fr;
-    list-style-type: none;
+  .modulos {
+    grid-area: n10;
 
-    .item5 {
-      margin-bottom: 0;
-      list-style-type: none;
+    table {
+      border-collapse: collapse;
+      width: 100%;
     }
+
+    th, td {
+      border: 1px solid black;
+      padding: 10px;
+    }
+
+    tbody tr {
+      $total-colores: length($fondo-color);
+      @for $i from 1 through $total-colores {
+        &:nth-child(#{2*$total-colores}n+#{$i}) {
+          background-color: nth($fondo-color, $i);
+        }
+      }
+    }
+
   }
 }
