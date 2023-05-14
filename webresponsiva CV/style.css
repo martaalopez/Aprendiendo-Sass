@@ -14,7 +14,6 @@ body {
 }
 .wrapper .item1 {
   background: #97a2a6;
-  font-weight: x-large;
   grid-area: n1;
   border-radius: 20px;
   border: 2px;
