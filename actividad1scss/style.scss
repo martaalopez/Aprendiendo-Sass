@@ -1,0 +1,27 @@
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$bg-color: #f8f9fa;
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  background-color: $bg-color;
+  color: $secondary-color;
+}
+
+
+h1 {
+  color: $primary-color;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+
+button {
+  background-color: $primary-color;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+ 
+}
