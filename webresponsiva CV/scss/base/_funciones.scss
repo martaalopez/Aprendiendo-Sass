@@ -1,0 +1,9 @@
+@function calcularAnchura($breakpoint) {
+  @if $breakpoint == "desktop" {
+    @return 992px;
+  } @else if $breakpoint == "mobile" {
+    @return 576px;
+  } @else if $breakpoint == "tablet" {
+    @return 768px;
+  }
+}

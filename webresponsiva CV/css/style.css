@@ -1,0 +1,117 @@
+.menu {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 100;
+}
+
+.menu ul {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  margin-right: 20px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.menu a:hover {
+  color: #888;
+}
+
+.wrapper {
+  width: 992px;
+  border: solid #fff;
+  margin-left: 5%;
+  margin-right: 5%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas: "n1 n4" "n1 n4" "n10 0";
+  gap: 20px;
+  background: #fff;
+}
+.wrapper .item1 {
+  background: #97a2a6;
+  grid-area: n1;
+  border-radius: 20px;
+  border: 2px;
+  padding: 20px;
+}
+.wrapper .item4 {
+  grid-area: n4;
+}
+.wrapper .item5 {
+  background: #97a2a6;
+  grid-area: n5;
+}
+@media screen and (max-width: 650px) {
+  .wrapper {
+    width: 576px;
+    grid-template-areas: "n1" "n4" "n5" "n10";
+    grid-template-columns: 1fr !important;
+  }
+  .wrapper .item1 {
+    text-align: center;
+  }
+  .wrapper .item1 ul li {
+    list-style-type: none;
+  }
+  .wrapper .item4 {
+    text-align: center;
+  }
+  .wrapper .item4 h1 {
+    margin-top: 50px;
+  }
+  .wrapper .item4 ul li {
+    list-style-type: none;
+  }
+  .wrapper .item5 {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+}
+.wrapper .modulos {
+  grid-area: n10;
+}
+.wrapper .modulos table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.wrapper .modulos th,
+.wrapper .modulos td {
+  border: 1px solid black;
+  padding: 10px;
+}
+.wrapper .modulos tbody tr:nth-child(14n+1) {
+  background-color: #2ced11;
+}
+.wrapper .modulos tbody tr:nth-child(14n+2) {
+  background-color: #f11b0d;
+}
+.wrapper .modulos tbody tr:nth-child(14n+3) {
+  background-color: #ef0fe2;
+}
+.wrapper .modulos tbody tr:nth-child(14n+4) {
+  background-color: #11eedc;
+}
+.wrapper .modulos tbody tr:nth-child(14n+5) {
+  background-color: #e5ee11;
+}
+.wrapper .modulos tbody tr:nth-child(14n+6) {
+  background-color: #888377;
+}
+.wrapper .modulos tbody tr:nth-child(14n+7) {
+  background-color: #f0960e;
+}
+
+/*# sourceMappingURL=style.css.map */

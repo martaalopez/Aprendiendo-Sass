@@ -1,0 +1,91 @@
+.wrapper {
+  width: calcularAnchura("desktop");
+  border: solid $bg-color;
+  margin-left: 5%;
+  margin-right: 5%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas:
+    "n1 n4"
+    "n1 n4"
+    "n10 0";
+  gap: 20px;
+  background: $bg-color;
+
+  .item1 {
+    background: $main-color;
+    grid-area: n1;
+    border-radius: $radio-bordes;
+    border: 2px;
+    padding: 20px;
+  }
+
+  .item4 {
+    grid-area: n4;
+  }
+
+  .item5 {
+    background: $main-color;
+    grid-area: n5;
+  }
+
+  @media screen and (max-width: #{map-get($breakpoint, "mobile")}) {
+    width: calcularAnchura("mobile");
+    grid-template-areas:
+      "n1"
+      "n4"
+      "n5"
+      "n10";
+    grid-template-columns: 1fr !important;
+
+    .item1 {
+      text-align: center;
+
+      ul li {
+        list-style-type: none;
+      }
+    }
+
+    .item4 {
+      text-align: center;
+
+      h1 {
+        margin-top: 50px;
+      }
+
+      ul li {
+        list-style-type: none;
+      }
+    }
+
+    .item5 {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+  }
+
+  .modulos {
+    grid-area: n10;
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th,
+    td {
+      border: 1px solid black;
+      padding: 10px;
+    }
+
+    tbody tr {
+      $total-colores: length($fondo-color);
+      @for $i from 1 through $total-colores {
+        &:nth-child(#{2 * $total-colores}n + #{$i}) {
+          background-color: nth($fondo-color, $i);
+        }
+      }
+    }
+  }
+}
