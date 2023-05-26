@@ -1,0 +1,24 @@
+@use "sass:list";
+
+/// Reinicia los márgenes de los elementos especificados
+@mixin reset {
+  margin: 0;
+}
+
+/// Centra un elemento especificado verticalmente en su contenedor
+///
+/// @param {number} $margin-top - Margen superior del elemento
+/// @param {number} $margin-bottom - Margen inferior del elemento
+/// @param {number} $element-size - Tamaño del elemento a centrar
+@mixin centrado($margin-top, $margin-bottom, $element-size) {
+  margin-top: $margin-top;
+  margin-bottom: $margin-bottom;
+  width: $element-size;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/// Aplica los estilos necesarios al elemento container
+.container {
+  @include centrado(20px, 20px, 80%);
+}
