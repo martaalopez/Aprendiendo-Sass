@@ -1,0 +1,9 @@
+@use "sass:list";
+
+/// Devuelve el color en la posición especificada de la lista de colores
+///
+/// @param {number} $index - Índice del color en la lista
+/// @return {color} - Color correspondiente al índice especificado
+@function colorSectionTitle($index) {
+  @return list.nth($colors, $index);
+}

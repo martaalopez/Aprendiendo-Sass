@@ -1,0 +1,42 @@
+/// Variables para el tema oscuro
+$primary-color-dark: #333333;
+$secondary-color-dark: #666666;
+
+/// Variables para el tema claro
+$primary-color-light: #ffffff;
+$secondary-color-light: #dddddd;
+
+/// Variables para el tema claro
+// $primary-color: #ffffff;
+// $secondary-color: #dddddd;
+
+/// Lista de colores
+$colors: (
+        #ff0000,
+        #00ff00,
+        #0000ff,
+        #ffff00,
+        #ff00ff
+);
+
+/// Variables para el tema oscuro
+$dark-theme: (
+        primary-color: #333333,
+        secondary-color: #666666,
+);
+
+/// Variables para el tema claro
+$light-theme: (
+        primary-color: #ffffff,
+        secondary-color: #dddddd,
+);
+
+/// Variable para indicar el tema actual
+$theme: dark;
+
+/// Estilos condicionales según el tema
+body {
+        background-color: if($theme == dark, $primary-color-dark, $primary-color-light);
+        color: if($theme == dark, $secondary-color-dark, $secondary-color-light);
+}
+
